@@ -175,3 +175,103 @@ max(answer_list)
 
 
 
+
+
+
+
+"""
+No.9 [Special Pythagorean triplet]
+
+A Pythagorean triplet is a set of three natural numbers, a < b < c, for which,
+
+a^2 + b^2 = c^2
+For example, 3^2 + 4^2 = 9 + 16 = 25 = 52.
+
+There exists exactly one Pythagorean triplet for which a + b + c = 1000.
+Find the product abc.
+"""
+
+"""
+Conditions
+1) a^2 + b^2 = c^2
+2) a < b < c 
+3) a + b + c = 1000
+"""
+
+import math
+
+
+def Find_Pyth(number) :
+    
+    a = 1
+    b = 2
+    result = 0
+    for i in range(a, number + 1) :
+        for j in range(b, number + 1) :
+            if i > j :
+                pass
+            else :
+                square_sum = i**2 + j**2
+                root_sum = math.sqrt(square_sum)
+                if math.trunc(root_sum) == math.sqrt(square_sum) :
+                    c = root_sum
+                    
+                    if i + j + c == 1000 :
+                        a = i
+                        b = j
+                        result = a*b*c
+                        break
+        
+        if result != 0 :
+            break
+    
+    return a, b, c, result
+
+answer = Find_Pyth(1000)
+
+print(answer) # (200, 375, 425.0, 31875000.0)
+
+
+
+
+
+
+
+
+
+
+"""
+No.10 [Summation of primes]
+
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
+
+Find the sum of all the primes below two million.
+"""
+
+"""
+Using the "Sieve of Eratosthenes"
+"""
+
+import math
+
+def Eratosthenes_sum(number) :
+    
+    answer = 0
+    
+    result = [True] * number
+    root_num = int(math.sqrt(number))
+    
+    for i in range(2, root_num + 1) :
+        for j in range(i+i, number, i) : # j = multiples of i
+            result[j] = False
+    
+    prime_list = [k for k in range(2, number) if result[k] == True]
+    
+    for l in prime_list :
+        answer += l
+    
+    return answer
+    
+            
+a = Eratosthenes_sum(2000000)
+print(a) # 142913828922
