@@ -27,12 +27,11 @@ then, a computer prints "1 Strike!, 1 Ball!"
 # First Step : Generating three numbers
 import random
 
-for n in range(1, 11) :
-    answer = []
-    while len(answer) < 3 :
-        random_number = random.randint(1, 9)
-        if random_number not in answer :
-            answer.append(random_number)
+answer = []
+while len(answer) < 3 :
+    random_number = random.randint(1, 9)
+    if random_number not in answer :
+        answer.append(random_number)
   
     
 # Second Step : Enter numbers
@@ -68,12 +67,12 @@ import random
 
 chance_count = 5
 
-for n in range(1, 11) :
-    answer = []
-    while len(answer) < 3 :
-        random_number = random.randint(1, 9)
-        if random_number not in answer :
-            answer.append(random_number)
+
+answer = []
+while len(answer) < 3 :
+    random_number = random.randint(1, 9)
+    if random_number not in answer :
+        answer.append(random_number)
 
 while chance_count > 0 :
     enter_count = 0
