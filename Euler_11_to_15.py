@@ -600,3 +600,64 @@ print(final_answer)
 
 
 
+
+
+
+
+
+"""
+No.14 [Longest Collatz sequence]
+
+The following iterative sequence is defined for the set of positive integers:
+
+n → n/2 (n is even)
+n → 3n + 1 (n is odd)
+
+Using the rule above and starting with 13, we generate the following sequence:
+
+13 → 40 → 20 → 10 → 5 → 16 → 8 → 4 → 2 → 1
+It can be seen that this sequence (starting at 13 and finishing at 1) contains 10 terms. 
+Although it has not been proved yet (Collatz Problem), it is thought that all starting numbers finish at 1.
+
+Which starting number, under one million, produces the longest chain?
+
+NOTE: Once the chain starts the terms are allowed to go above one million.
+"""
+
+def Collatz_Number(number) :
+    if number % 2 == 0 :
+        result = number / 2
+    else :
+        result = number * 3 + 1 
+    return result 
+
+
+def Collatz_Sequence_Length(number) :
+    cnt = 2 # including cnt of first number and last number
+    a = Collatz_Number(number)
+    while a > 1 :
+        a = Collatz_Number(a)
+        cnt += 1
+    return cnt, number
+
+cnt, answer = Collatz_Sequence_Length(13)
+print(answer) # 10
+
+
+length_list = []
+number_list = []
+
+for i in range(1, 1000000) :
+    cnt, answer = Collatz_Sequence_Length(i)
+    length_list.append(cnt)
+    number_list.append(answer)
+    
+max(length_list) # 525
+length_list.index(525) # 837798
+number_list[837798] # 837799
+
+'''
+answer
+number = 837799
+length = 525
+'''
