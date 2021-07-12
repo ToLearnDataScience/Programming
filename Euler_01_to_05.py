@@ -50,6 +50,8 @@ By starting with 1 and 2, the first 10 terms will be:
 Making a function that finds the sum of the even-valued terms.
 """
 
+# method 1
+
 def Fibonacci_even(number) :
     list_1 = [1]
     list_2 = [1]
@@ -90,6 +92,30 @@ Fibonacci_even(4) # 2
 Fibonacci_even(6) # 10
 Fibonacci_even(10) # 44
 Fibonacci_even(20) # 3382
+
+# method 2
+
+def Fibonacci_Even(number) :
+    result = 0
+    cnt = 2
+    Fibonacci_list = [1, 1]
+    if number == 1 or number == 2:
+        result = 0
+    else :
+        while cnt < number :
+            cnt += 1
+            Fibonacci_list.append(Fibonacci_list[-2] + Fibonacci_list[-1])
+    for n in Fibonacci_list :
+        if n % 2 == 0 :
+            result += n
+        else :
+            continue
+    return result
+
+Fibonacci_Even(2) # 0
+Fibonacci_Even(4) # 2
+Fibonacci_Even(6) # 10
+Fibonacci_Even(10) # 44
 
 
 
