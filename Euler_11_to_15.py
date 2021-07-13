@@ -661,3 +661,38 @@ answer
 number = 837799
 length = 525
 '''
+
+
+
+
+
+
+
+
+
+
+
+"""
+No.15 [Lattice paths]
+
+Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, 
+there are exactly 6 routes to the bottom right corner.
+
+How many such routes are there through a 20×20 grid?
+"""
+
+import math
+
+def paths_cnt(number) :
+    return math.factorial(number + number) / (math.factorial(number) * math.factorial(number))
+
+grid_2 = paths_cnt(2)
+print(grid_2) # 6.0
+
+grid_20 = paths_cnt(20)
+print(grid_20) # 137846528820.0
+
+'''
+[The answer]
+137846528820
+'''
