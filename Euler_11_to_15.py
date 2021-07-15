@@ -67,7 +67,13 @@ grid_20_20[0] # '\n'
 grid_20_20[1]  # '0'
 
 
-# Preprocessing
+# Preprocessing Method 1
+import re
+
+num_list = re.findall("[0-9]{2}", grid_20_20)
+
+
+# Preprocessing Method 2
 num_list = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 pre_list = []
 
@@ -544,7 +550,12 @@ large_num[0] # '\n'
 large_num[1] # '3'
 
 
-# Preprocessing
+# Preprocessing Method 1
+import re
+
+num_list = re.findall("[0-9]{50}", large_num)
+
+# Preprocessing Method 2
 num_list1 = ['0', '1', '2', '3', '4', '5', '6', '7' ,'8' ,'9']
 num_list2 = []
 
@@ -593,6 +604,7 @@ final_answer = int(m_answer)
 print(final_answer)
 
 '''
+[The answer]
 5537376230
 '''
 
